@@ -172,15 +172,16 @@ h2 em{font-style:normal;color:var(--teal)}
 .tabs .tab[aria-selected="true"]{background:var(--purple);color:#fff;border-color:var(--purple);transform:translateX(10px)}
 .tabs .tab[aria-selected="true"] .n{color:#8ff0ee}
 .tabs .tab[aria-selected="true"] .k{color:#e4d3ee}
-.tabs .pane{grid-column:2;grid-row:1 / span 8;display:none;border-radius:40px;padding:56px;background:var(--teal);color:#fff;position:relative;overflow:hidden;min-height:430px}
+.tabs .pane{grid-column:2;grid-row:1 / span 8;display:none;border-radius:40px;padding:56px;background:var(--purple-deep);color:#fff;position:relative;overflow:hidden;min-height:560px;isolation:isolate}
 .tabs .pane.on{display:flex;flex-direction:column;justify-content:flex-end;animation:rise .45s ease}
 @keyframes rise{from{opacity:0;transform:translateY(14px)}}
-.pane .big{position:absolute;right:30px;top:6px;font-family:var(--display);font-weight:700;font-size:210px;line-height:1;color:rgba(255,255,255,.16)}
-.pane .k2{font-family:var(--display);font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:14px;margin-bottom:14px;position:relative}
+.pane .ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.pane::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,rgba(43,23,65,.94) 0%,rgba(43,23,65,.72) 34%,rgba(43,23,65,0) 66%)}
+.pane .big{position:absolute;right:32px;top:14px;font-family:var(--display);font-weight:700;font-size:150px;line-height:1;color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.75);text-shadow:0 6px 24px rgba(43,23,65,.35)}
+.pane .k2{font-family:var(--display);font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:14px;margin-bottom:14px;position:relative;color:#8ff0ee}
 .pane h3{font-family:var(--display);font-weight:700;font-size:clamp(34px,4vw,54px);line-height:1;margin-bottom:20px;position:relative}
 .pane p{font-size:clamp(19px,1.8vw,23px);max-width:520px;position:relative}
-.pane .dots{position:absolute;left:-30px;top:-30px;width:130px;height:130px;border-radius:50%;background:var(--purple);opacity:.9}
-.pane:nth-of-type(even){background:var(--purple)}
+.pane .dots{position:absolute;left:-34px;top:-34px;width:120px;height:120px;border-radius:50%;background:var(--teal);opacity:.95;z-index:1}
 
 /* cta */
 .takeback{background:var(--purple-deep);color:#fff;padding:120px 0 190px;position:relative;overflow:hidden;text-align:center}
@@ -232,8 +233,9 @@ footer address{font-style:normal}
   .tabs li{display:block;margin-bottom:10px}
   .tabs .tab{width:100%}
   .tabs .tab[aria-selected="true"]{transform:none}
-  .tabs .pane{grid-column:auto;min-height:0;padding:34px 28px;border-radius:26px;margin:8px 0 14px}
-  .pane .big{font-size:130px}
+  .tabs .pane{grid-column:auto;min-height:420px;padding:34px 28px;border-radius:26px;margin:8px 0 14px}
+  .pane .big{font-size:96px;right:20px}
+  .pane::after{background:linear-gradient(to top,rgba(43,23,65,.96) 0%,rgba(43,23,65,.88) 55%,rgba(43,23,65,.3) 82%,rgba(43,23,65,0) 100%)}
   .panel{padding:32px 26px;border-radius:28px}
   .gal{grid-template-columns:1fr}
   .gal figure:nth-child(3){grid-column:auto}
@@ -429,35 +431,35 @@ footer address{font-style:normal}
     <ul class="tabs" id="tabs">
       <li>
         <button class="tab" role="tab" aria-selected="true" aria-controls="p1" id="t1"><span class="n">01</span><span><span class="t">Culture Matters</span><span class="k">Reliable House Cleaning</span></span></button>
-        <div class="pane on" id="p1" role="tabpanel" aria-labelledby="t1"><span class="dots"></span><span class="big">01</span><span class="k2">Reliable House Cleaning</span><h3>Culture Matters</h3><p>We offer a living wage, Health benefits including mental health care. Amazing training and support. This is how we retain the most amazing cleaner in Edmonton.</p></div>
+        <div class="pane on" id="p1" role="tabpanel" aria-labelledby="t1"><img class="ph" src="images/promise-1.jpg" alt="Cleaning caddy with brushes, towels and a plant on a bright kitchen counter" loading="lazy"><span class="dots"></span><span class="big">01</span><span class="k2">Reliable House Cleaning</span><h3>Culture Matters</h3><p>We offer a living wage, Health benefits including mental health care. Amazing training and support. This is how we retain the most amazing cleaner in Edmonton.</p></div>
       </li>
       <li>
         <button class="tab" role="tab" aria-selected="false" aria-controls="p2" id="t2"><span class="n">02</span><span><span class="t">High attention</span><span class="k">Details</span></span></button>
-        <div class="pane" id="p2" role="tabpanel" aria-labelledby="t2"><span class="dots"></span><span class="big">02</span><span class="k2">Details</span><h3>High attention</h3><p>Because we bill by the job and not the hour, our team is not under pressure. They won't cut corners to meet a time expectation. We love a good before and after picture.</p></div>
+        <div class="pane" id="p2" role="tabpanel" aria-labelledby="t2"><img class="ph" src="images/promise-2.jpg" alt="Chrome faucet with a single clean water drop over a white sink" loading="lazy"><span class="dots"></span><span class="big">02</span><span class="k2">Details</span><h3>High attention</h3><p>Because we bill by the job and not the hour, our team is not under pressure. They won't cut corners to meet a time expectation. We love a good before and after picture.</p></div>
       </li>
       <li>
         <button class="tab" role="tab" aria-selected="false" aria-controls="p3" id="t3"><span class="n">03</span><span><span class="t">Eco, Family and Pets</span><span class="k">Our Products</span></span></button>
-        <div class="pane" id="p3" role="tabpanel" aria-labelledby="t3"><span class="dots"></span><span class="big">03</span><span class="k2">Our Products</span><h3>Eco, Family and Pets</h3><p>Our own line of cleaners get the job done right. Our cleaners are Eco friendly, Safe for your family and your pets. We pride ourselves in educating ourselves about safety.</p></div>
+        <div class="pane" id="p3" role="tabpanel" aria-labelledby="t3"><img class="ph" src="images/promise-3.jpg" alt="Two spray bottles with lemon halves and leaves on a kitchen counter" loading="lazy"><span class="dots"></span><span class="big">03</span><span class="k2">Our Products</span><h3>Eco, Family and Pets</h3><p>Our own line of cleaners get the job done right. Our cleaners are Eco friendly, Safe for your family and your pets. We pride ourselves in educating ourselves about safety.</p></div>
       </li>
       <li>
         <button class="tab" role="tab" aria-selected="false" aria-controls="p4" id="t4"><span class="n">04</span><span><span class="t">Over 25 years</span><span class="k">Experience</span></span></button>
-        <div class="pane" id="p4" role="tabpanel" aria-labelledby="t4"><span class="dots"></span><span class="big">04</span><span class="k2">Experience</span><h3>Over 25 years</h3><p>With over 25 years in the industry, we have seen it all. So many of our team are long time, dedicated cleaners. With experience comes quality and care.</p></div>
+        <div class="pane" id="p4" role="tabpanel" aria-labelledby="t4"><img class="ph" src="images/promise-4.jpg" alt="Neatly folded towels on tidy wooden linen closet shelves" loading="lazy"><span class="dots"></span><span class="big">04</span><span class="k2">Experience</span><h3>Over 25 years</h3><p>With over 25 years in the industry, we have seen it all. So many of our team are long time, dedicated cleaners. With experience comes quality and care.</p></div>
       </li>
       <li>
         <button class="tab" role="tab" aria-selected="false" aria-controls="p5" id="t5"><span class="n">05</span><span><span class="t">We Love Pets</span><span class="k">Animals</span></span></button>
-        <div class="pane" id="p5" role="tabpanel" aria-labelledby="t5"><span class="dots"></span><span class="big">05</span><span class="k2">Animals</span><h3>We Love Pets</h3><p>Every residential cleaner loves pets. Please leave them free as they would be if we were not there. Nothing better than a snuggle in the middle of the day.</p></div>
+        <div class="pane" id="p5" role="tabpanel" aria-labelledby="t5"><img class="ph" src="images/promise-5.jpg" alt="Golden retriever sleeping on a clean light grey sofa" loading="lazy"><span class="dots"></span><span class="big">05</span><span class="k2">Animals</span><h3>We Love Pets</h3><p>Every residential cleaner loves pets. Please leave them free as they would be if we were not there. Nothing better than a snuggle in the middle of the day.</p></div>
       </li>
       <li>
         <button class="tab" role="tab" aria-selected="false" aria-controls="p6" id="t6"><span class="n">06</span><span><span class="t">You are fully covered</span><span class="k">Security</span></span></button>
-        <div class="pane" id="p6" role="tabpanel" aria-labelledby="t6"><span class="dots"></span><span class="big">06</span><span class="k2">Security</span><h3>You are fully covered</h3><p>We are Licensed, insured, Bonded, and carry WCB. We take pride in our work, but also want you to feel secure with us in your home.</p></div>
+        <div class="pane" id="p6" role="tabpanel" aria-labelledby="t6"><img class="ph" src="images/promise-6.jpg" alt="Tidy home entryway with a bench, flowers and a wooden front door" loading="lazy"><span class="dots"></span><span class="big">06</span><span class="k2">Security</span><h3>You are fully covered</h3><p>We are Licensed, insured, Bonded, and carry WCB. We take pride in our work, but also want you to feel secure with us in your home.</p></div>
       </li>
       <li>
         <button class="tab" role="tab" aria-selected="false" aria-controls="p7" id="t7"><span class="n">07</span><span><span class="t">Certified Carpet Techs</span><span class="k">Carpet Cleaning</span></span></button>
-        <div class="pane" id="p7" role="tabpanel" aria-labelledby="t7"><span class="dots"></span><span class="big">07</span><span class="k2">Carpet Cleaning</span><h3>Certified Carpet Techs</h3><p>Our entire floor team is certified carpet technicians. Not everyone should clean carpets. We offer upholstery and mattress cleaning.</p></div>
+        <div class="pane" id="p7" role="tabpanel" aria-labelledby="t7"><img class="ph" src="images/promise-7.jpg" alt="Freshly cleaned beige carpet with soft vacuum lines" loading="lazy"><span class="dots"></span><span class="big">07</span><span class="k2">Carpet Cleaning</span><h3>Certified Carpet Techs</h3><p>Our entire floor team is certified carpet technicians. Not everyone should clean carpets. We offer upholstery and mattress cleaning.</p></div>
       </li>
       <li>
         <button class="tab" role="tab" aria-selected="false" aria-controls="p8" id="t8"><span class="n">08</span><span><span class="t">Tile and Grout</span><span class="k">Hard Floor Care</span></span></button>
-        <div class="pane" id="p8" role="tabpanel" aria-labelledby="t8"><span class="dots"></span><span class="big">08</span><span class="k2">Hard Floor Care</span><h3>Tile and Grout</h3><p>We offer specialized tile and grout cleaning. We can even replace your caulking. We will make the important parts of your home look their best.</p></div>
+        <div class="pane" id="p8" role="tabpanel" aria-labelledby="t8"><img class="ph" src="images/promise-8.jpg" alt="Clean grey floor tiles with bright white grout lines" loading="lazy"><span class="dots"></span><span class="big">08</span><span class="k2">Hard Floor Care</span><h3>Tile and Grout</h3><p>We offer specialized tile and grout cleaning. We can even replace your caulking. We will make the important parts of your home look their best.</p></div>
       </li>
     </ul>
   </div>
